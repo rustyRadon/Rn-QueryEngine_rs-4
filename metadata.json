@@ -1,0 +1,8 @@
+{
+  "name": "employees",
+  "columns": [
+    { "name": "id", "data_type": "Int32", "file": "id.bin" },
+    { "name": "dept_id", "data_type": "Int32", "file": "dept_id.bin" },
+    { "name": "salary", "data_type": "Float64", "file": "salary.bin" }
+  ]
+}
