@@ -1,1 +1,35 @@
-/target
+Path,Purpose
+src/catalog/,"The ""Librarian."" It knows what columns exist and what their data types are."
+src/storage/,"The ""Warehouse."" It handles the low-level binary loading and memory management."
+src/compute/,"The ""Engine Room."" Contains the math (Functions) and the relational logic (Join)."
+src/util/,Helper tools like the BitMask that make the engine more efficient.
+metadata.json,The Table Definition. It maps logical names to physical .bin files.
+departments.json,"The Dimension Table. The human-readable names we want to ""Join"" with."
+
+
+# --- RUST SPECIFIC ---
+# The /target folder contains all compiled code. 
+# It can grow to several GBs and is specific to your CPU.
+/target/
+
+# --- DATA SPECIFIC (THE "HEAVY" STUFF) ---
+# We don't upload .bin files because they are 1,000,000 rows.
+# These should be generated locally using the Python script.
+*.bin
+
+# --- PYTHON SPECIFIC ---
+# Python creates these folders to speed up script execution.
+__pycache__/
+*.pyc
+
+# --- OS SPECIFIC ---
+# Hidden files created by Windows/Mac that add clutter.
+.DS_Store
+Thumbs.db
+
+# --- LOCK FILES ---
+# While Cargo.lock is often kept in apps, for high-perf systems, 
+# some prefer to let the environment resolve it. 
+# (Keep it for now, but know it's optional).
+
+
